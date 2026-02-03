@@ -1,6 +1,6 @@
 {
   "meta": { "grid_dimension": 6 },
-  "reward": { "url": "/images/demo_coser.jpg", "unlock_text": "系统启动成功！" },
+  "reward": { "url": "images/demo_coser.jpg", "unlock_text": "系统启动成功！" },
   "matrix": [
     {
       "id": "w1",
