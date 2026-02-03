@@ -158,11 +158,23 @@ function handleInput() {
   gap: 20px;
 }
 
-/* 棋盘样式 */
+/* 1. 棋盘适配：手机上占屏幕 95%，电脑上最大 450px */
 .game-board {
+  /* 核心修改：使用 min() 函数 */
+  /* 意思就是：在 "95%的屏幕宽度" 和 "450px" 之间，谁小选谁 */
+  width: min(95vw, 450px); 
+  
+  /* 保持正方形 */
+  aspect-ratio: 1 / 1;
+  
   background: rgba(0, 0, 0, 0.3);
-  padding: 10px;
+  padding: 5px; /* 手机上 padding 小一点 */
   border-radius: 8px;
+  margin: 0 auto; /* 居中 */
+  
+  /* 确保格子布局计算正确 (Vue 里的 gridStyle 会覆盖这里，但写上作为兜底) */
+  display: grid;
+  gap: 3px; 
 }
 
 .cell-wrapper {
@@ -171,16 +183,17 @@ function handleInput() {
   height: 100%;
 }
 
+/* 2. 输入框字体适配 */
 .cell-input {
+  /* ...原有属性保留... */
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
   text-align: center;
-  font-size: 1.2rem;
-  border-radius: 4px;
-  padding: 0; /* 修复某些浏览器 padding 导致输入框偏倚 */
+  
+  /* 核心修改：动态字体 */
+  /* 意思就是：字体大小跟随格子宽度变化，不再是固定的 1.2rem */
+  font-size: clamp(12px, 4vw, 24px); 
+  padding: 0;
 }
 
 .cell-input:focus {
@@ -203,23 +216,22 @@ function handleInput() {
   pointer-events: none;
 }
 
-/* 提示面板样式 */
+/* 3. 提示面板适配：手机单列，电脑双列 */
 .clue-panel {
+  width: min(95vw, 800px); /* 宽度限制 */
+  margin-top: 20px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.6); /* 半透明黑底，保证文字清晰 */
-  border-radius: 10px;
+  flex-wrap: wrap; /* 允许换行 */
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.6);
   padding: 15px;
-  box-sizing: border-box;
-  backdrop-filter: blur(10px); /* 局部毛玻璃，增加高级感 */
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
 }
 
 .clue-column {
-  flex: 1;
-  min-width: 250px;
-  padding: 0 10px;
+  flex: 1; 
+  min-width: 280px; /* 关键：当宽度小于 280px 时，强制换行变为单列 */
 }
 
 h3 {
