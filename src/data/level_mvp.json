@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "version": "1.0",
+    "generator": "manual_mvp",
+    "difficulty": "N3_Automotive",
+    "grid_dimension": 8
+  },
+  "reward": {
+    "id": "reward_001",
+    "type": "image",
+    "url": "/images/demo_coser.jpg",
+    "blur_strength": 40,
+    "unlock_text": "ECU 逻辑校验通过！"
+  },
+  "matrix": [
+    {
+      "id": "w1",
+      "answer": "エンジン",
+      "clue_cn": "【动力】将燃料热能转化为机械能的装置 (Engine)",
+      "clue_jp_hint": "エ___",
+      "start_x": 1,
+      "start_y": 1,
+      "orientation": "across",
+      "length": 4
+    },
+    {
+      "id": "w2",
+      "answer": "エアバッグ",
+      "clue_cn": "【安全】碰撞时迅速充气保护乘客的装置 (Airbag)",
+      "clue_jp_hint": "エ____",
+      "start_x": 1,
+      "start_y": 1,
+      "orientation": "down",
+      "length": 6
+    },
+    {
+      "id": "w3",
+      "answer": "バス",
+      "clue_cn": "【通信】CAN-___，一种串行通信协议",
+      "clue_jp_hint": "_ス",
+      "start_x": 1,
+      "start_y": 5,
+      "orientation": "across",
+      "length": 2
+    },
+    {
+      "id": "w4",
+      "answer": "スイッチ",
+      "clue_cn": "【电子】用于开闭电路的元件 (Switch)",
+      "clue_jp_hint": "ス___",
+      "start_x": 3,
+      "start_y": 5,
+      "orientation": "down",
+      "length": 4
+    },
+    {
+      "id": "w5",
+      "answer": "チップ",
+      "clue_cn": "【半导体】集成电路的别称 (Chip)",
+      "clue_jp_hint": "チ__",
+      "start_x": 0,
+      "start_y": 8,
+      "orientation": "across",
+      "length": 3
+    }
+  ]
+}
