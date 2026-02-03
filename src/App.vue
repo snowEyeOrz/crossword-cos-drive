@@ -7,8 +7,8 @@
     />
 
     <div class="content-layer">
-      <h1>Crossword-Cos-Drive</h1>
-      <p class="subtitle">汽车日语补完计划</p>
+      <h1>DIY填字游戏</h1>
+      <p class="subtitle">coser卡片收集Project</p>
       
       <GameBoard 
         @game-loaded="handleGameLoaded"
