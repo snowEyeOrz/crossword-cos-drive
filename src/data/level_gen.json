@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "version": "2.0 (Auto-Generated)",
+    "grid_dimension": 10
+  },
+  "reward": {
+    "id": "gen_reward",
+    "type": "random",
+    "desc": "Auto Generated Level"
+  },
+  "matrix": [
+    {
+      "id": "gen_1",
+      "answer": "トランスミッション",
+      "clue_cn": "【动力】改变扭矩和转速的装置 (Transmission)",
+      "clue_jp_hint": "ト_______",
+      "start_x": 1,
+      "start_y": 6,
+      "orientation": "across",
+      "length": 9
+    },
+    {
+      "id": "gen_2",
+      "answer": "カメラ",
+      "clue_cn": "【电子】辅助驾驶的眼睛 (Camera)",
+      "clue_jp_hint": "カ__",
+      "start_x": 2,
+      "start_y": 4,
+      "orientation": "down",
+      "length": 3
+    },
+    {
+      "id": "gen_3",
+      "answer": "ハンドル",
+      "clue_cn": "【内饰】控制方向的方向盘 (Steering Wheel)",
+      "clue_jp_hint": "ハ___",
+      "start_x": 9,
+      "start_y": 5,
+      "orientation": "down",
+      "length": 4
+    },
+    {
+      "id": "gen_4",
+      "answer": "オイル",
+      "clue_cn": "【维护】润滑用的油 (Oil)",
+      "clue_jp_hint": "オ__",
+      "start_x": 7,
+      "start_y": 8,
+      "orientation": "across",
+      "length": 3
+    },
+    {
+      "id": "gen_5",
+      "answer": "エアバッグ",
+      "clue_cn": "【安全】碰撞时弹出的气囊 (Airbag)",
+      "clue_jp_hint": "エ____",
+      "start_x": 6,
+      "start_y": 3,
+      "orientation": "down",
+      "length": 5
+    },
+    {
+      "id": "gen_6",
+      "answer": "バス",
+      "clue_cn": "【通信】CAN___，数据总线 (Bus)",
+      "clue_jp_hint": "バ_",
+      "start_x": 4,
+      "start_y": 5,
+      "orientation": "down",
+      "length": 2
+    },
+    {
+      "id": "gen_7",
+      "answer": "ギア",
+      "clue_cn": "【机械】传递动力的齿轮 (Gear)",
+      "clue_jp_hint": "ギ_",
+      "start_x": 5,
+      "start_y": 4,
+      "orientation": "across",
+      "length": 2
+    },
+    {
+      "id": "gen_8",
+      "answer": "エアコン",
+      "clue_cn": "【舒适】空气调节系统 (Air Con)",
+      "clue_jp_hint": "エ___",
+      "start_x": 6,
+      "start_y": 3,
+      "orientation": "across",
+      "length": 4
+    },
+    {
+      "id": "gen_9",
+      "answer": "ドア",
+      "clue_cn": "【车身】乘客进出的门 (Door)",
+      "clue_jp_hint": "ド_",
+      "start_x": 7,
+      "start_y": 2,
+      "orientation": "down",
+      "length": 2
+    }
+  ]
+}
