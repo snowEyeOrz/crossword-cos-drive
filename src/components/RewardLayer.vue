@@ -44,8 +44,18 @@ const maskStyle = computed(() => {
   top: 0; left: 0; width: 100%; height: 100%;
 }
 .bg-image {
-  background-size: cover;
-  background-position: center;
+  /* 确保绝对定位占满父容器 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* 核心修复点：背景图处理 */
+  background-size: cover;      /* 保持覆盖整个区域 */
+  background-position: center center; /* 关键：强制图片在容器中居中显示 */
+  background-repeat: no-repeat; /* 防止图片重复平铺 */
+  
   z-index: 0;
 }
 .blur-mask {

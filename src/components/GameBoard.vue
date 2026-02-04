@@ -183,37 +183,62 @@ function handleInput() {
   height: 100%;
 }
 
-/* 2. 输入框字体适配 */
+/* 1. 输入框样式：改为深色半透明玻璃质感 */
 .cell-input {
-  /* ...原有属性保留... */
   width: 100%;
   height: 100%;
-  text-align: center;
   
-  /* 核心修改：动态字体 */
-  /* 意思就是：字体大小跟随格子宽度变化，不再是固定的 1.2rem */
+  /* 核心修改：深色背景，与白色格子区分开 */
+  background: rgba(30, 30, 30, 0.7); 
+  
+  /* 边框：浅色细边，增加精致感 */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  
+  /* 字体颜色：白色，保证在深色背景下清晰 */
+  color: #ffffff;
+  
+  text-align: center;
+  /* 之前的字体适配 clamp 代码保留 */
   font-size: clamp(12px, 4vw, 24px); 
   padding: 0;
+  
+  /* 去掉浏览器默认的聚焦蓝框，换成我们自己的 */
+  outline: none;
+  transition: all 0.2s ease;
 }
 
+/* 选中/聚焦时的样式 */
 .cell-input:focus {
-  background: rgba(255, 255, 255, 0.2);
-  outline: 2px solid #ff4081;
+  background: rgba(255, 255, 255, 0.15); /* 稍微变亮 */
+  border-color: #ff4081; /* 粉色边框高亮 */
+  box-shadow: 0 0 8px rgba(255, 64, 129, 0.5); /* 发光效果 */
 }
 
+/* 答对变绿的样式 (保持不变) */
 .cell-input.correct {
-  background: rgba(76, 175, 80, 0.9);
+  background: rgba(76, 175, 80, 0.8);
   border-color: #4caf50;
+  color: white;
 }
 
-/* 序号小标 (Superscript) */
+/* 2. 数字标识样式：改为高亮颜色 */
 .word-label {
   position: absolute;
-  top: 1px;
-  left: 2px;
-  font-size: 0.6rem;
-  color: rgba(255, 255, 255, 0.7);
-  pointer-events: none;
+  top: 2px;
+  left: 3px;
+  font-size: 0.7rem; /* 稍微调大一点点 */
+  font-weight: bold;
+  
+  /* 核心修改：使用醒目的青色或黄色，确保在深色背景上能看到 */
+  color: #4ecca3; 
+  
+  /* 关键防Bug属性：确保鼠标点击能穿透数字，点到下面的输入框 */
+  pointer-events: none; 
+  z-index: 5; /* 确保浮在输入框上面 */
+  
+  /* 可选：加一点阴影让文字更立体 */
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.8);
 }
 
 /* 3. 提示面板适配：手机单列，电脑双列 */
