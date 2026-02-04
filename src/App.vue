@@ -38,46 +38,67 @@ const handleProgress = (progress) => {
 </script>
 
 <style>
-/* 全局样式 */
-/* 确保 html 和 body 占满屏幕，且禁止滚动 */
+/* 1. 全局重置：锁死最外层，防止整个页面在手机上乱动 */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden; /* 禁止整个页面滚动，防止背景图乱跑 */
+  overflow: hidden; /* 关键：禁止 body 滚动 */
+  background-color: #222; /* 防止加载时白屏 */
 }
 
 .app-container {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: relative;
-  background-color: #222;
-  
-  /* 解决移动端软键盘弹出时顶起页面的问题 */
-  display: flex;
-  flex-direction: column;
+  overflow: hidden; /* 双重保险 */
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* 允许内容区域内部滚动 */
+/* 2. 视觉层：必须在最底层 */
+/* 注意：RewardLayer 组件内部通常是 absolute，这里不需要额外样式，但确保它没有 z-index 或者很低 */
+
+/* 3. 内容交互层：核心修改 */
 .content-layer {
-  flex: 1;
+  position: absolute; /* 绝对定位，铺满屏幕 */
+  top: 0;
+  left: 0;
   width: 100%;
-  overflow-y: auto; /* 只有中间的内容区可以滚动 */
-  overflow-x: hidden;
-  padding-top: 20px;
-  padding-bottom: 50px; /* 底部留白，防止被手机Home条遮挡 */
+  height: 100%;
+  z-index: 10; /* 保证在背景图之上 */
   
-  /* 弹性布局居中 */
+  /* 滚动逻辑的核心 */
+  overflow-y: auto; /* 允许垂直滚动 */
+  -webkit-overflow-scrolling: touch; /* iOS 丝滑滚动支持 */
+  
+  /* 布局逻辑 */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center;  <-- 删掉这行，手机竖屏时不需要垂直居中，从顶开始排 */
+  /* ⚠️ 移除 justify-content: center; 这会导致长内容在手机上无法滚动到顶部 */
+  
+  padding-top: 40px; /* 顶部留出空间 */
+  padding-bottom: 80px; /* 底部留出空间，防止被手机 Home 条遮挡 */
+  box-sizing: border-box; /* 确保 padding 算在 height 内 */
 }
-/* 恢复交互 */
-.content-layer > * { pointer-events: auto; }
 
-h1 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.8); margin-bottom: 5px; }
-.subtitle { color: #aaa; margin-top: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
+/* 标题样式适配 */
+h1 { 
+  color: white; 
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8); 
+  margin: 0 0 5px 0; 
+  font-size: clamp(1.5rem, 5vw, 2.5rem); /* 标题字号也随屏幕缩放 */
+  text-align: center;
+}
+
+.subtitle { 
+  color: #aaa; 
+  margin: 0 0 20px 0; 
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8); 
+  font-size: clamp(0.8rem, 3vw, 1rem);
+  text-align: center;
+}
 </style>
+
 
