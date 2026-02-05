@@ -10,7 +10,7 @@
 
 ## 🌟 项目亮点 (Highlights)
 
-* **♾️ 无限关卡 (Infinite Levels)**: 采用边缘计算架构，浏览器端实时运行回溯算法（Backtracking Algorithm），每次刷新自动生成全新的棋盘结构。
+* **♾️ 无限关卡 (Infinite Levels)**: 采用边缘计算架构，浏览器端实时运行“随机贪心构造法 (Randomized Greedy Construction)”，每次刷新自动生成全新的棋盘结构。
 * **📱 全端适配 (Responsive Design)**: 完美适配桌面端与移动端，自动处理分辨率适配与交互逻辑。
 * **🎁 抽卡奖励 (Gacha System)**: 通关后触发随机奖励系统，解锁精美的背景插画（支持本地配置与网络图源）。
 * **🚀 自动化部署 (CI/CD)**: 集成 GitHub Actions，代码推送即自动构建并发布至 GitHub Pages。
@@ -60,7 +60,7 @@
 
 1. **克隆项目**
 ```bash
-git clone [https://github.com/YourUsername/crossword-cos-drive.git](https://github.com/YourUsername/crossword-cos-drive.git)
+git clone [https://github.com/snowEyeOrz/crossword-cos-drive.git](https://github.com/snowEyeOrz/crossword-cos-drive.git)
 cd crossword-cos-drive
 
 ```
